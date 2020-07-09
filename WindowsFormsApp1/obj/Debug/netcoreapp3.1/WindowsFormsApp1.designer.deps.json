@@ -1,0 +1,94 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Markdig/0.20.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/Markdig.dll": {
+            "assemblyVersion": "0.20.0.0",
+            "fileVersion": "0.20.0.0"
+          }
+        }
+      },
+      "Microsoft.Toolkit/6.1.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.7.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Toolkit.dll": {
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.1"
+          }
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.0": {
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.1"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.7.1": {
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "4.0.6.0",
+            "fileVersion": "4.700.20.12001"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Markdig/0.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-49Kuof5GSRdTnXlDvZ/+ucABl9l5oPA/jpIkFK8Zcnc0NiETj+rf5f4xoNr52a4Hs1DlcJmrRHv4xvZHMxnDFQ==",
+      "path": "markdig/0.20.0",
+      "hashPath": "markdig.0.20.0.nupkg.sha512"
+    },
+    "Microsoft.Toolkit/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CoE+lGVe+HorMHH1DRnLH8S1t1V38PS+pRxuM2ldvUZ0KsJmNGrGP8ieKmb9He+SI2EjkZIrAP/U7ysR3Lm26w==",
+      "path": "microsoft.toolkit/6.1.0",
+      "hashPath": "microsoft.toolkit.6.1.0.nupkg.sha512"
+    },
+    "Microsoft.Toolkit.Parsers/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J6Gt7TTgxaH169PRtPhjRVFPoz89EUmbzPj4jTBp8OqBAAE3iNNNou013MnYiwD5lKMQB1yLTrceKWxAtQ5v/w==",
+      "path": "microsoft.toolkit.parsers/6.1.0",
+      "hashPath": "microsoft.toolkit.parsers.6.1.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zOHkQmzPCn5zm/BH+cxC1XbUS3P4Yoi3xzW7eRgVpDR2tPGSzyMZ17Ig1iRkfJuY0nhxkQQde8pgePNiA7z7TQ==",
+      "path": "system.runtime.compilerservices.unsafe/4.7.1",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512"
+    }
+  }
+}

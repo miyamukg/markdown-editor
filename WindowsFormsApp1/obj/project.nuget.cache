@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "JoYu90tUIebt+jAfdjvsR5A1lBKaYX1a4aLTH0WdefDMzIrE3s/t2DHu0PJTWhsFkocBmElwEF5mQck72LAV+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dev\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\WindowsFormsApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dev\\.nuget\\packages\\markdig\\0.20.0\\markdig.0.20.0.nupkg.sha512",
+    "C:\\Users\\dev\\.nuget\\packages\\microsoft.toolkit\\6.1.0\\microsoft.toolkit.6.1.0.nupkg.sha512",
+    "C:\\Users\\dev\\.nuget\\packages\\microsoft.toolkit.parsers\\6.1.0\\microsoft.toolkit.parsers.6.1.0.nupkg.sha512",
+    "C:\\Users\\dev\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\dev\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.1\\system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
