@@ -12,11 +12,14 @@ namespace MarkdownEditor
 {
     public partial class Form1 : Form
     {
+        public string returnValue { get; set; } = "normal";
+
         public Form1()
         {
             InitializeComponent();
             string html = Markdown.ToHtml(txtMarkdown.Text);
             webBrowser1.DocumentText = html;
+
 
 
         }
@@ -69,14 +72,14 @@ namespace MarkdownEditor
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "HTMLファイル|*.html";
+            sf.Filter = "MDファイル|*.md";
+            sf.Filter += "|HTMLファイル|*.html";
             sf.Filter += "|PDFファイル|*.pdf";
 
             //ダイアログを表示する
 
             if (sf.ShowDialog() == DialogResult.OK)
             {
-                
 
                 switch (sf.FilterIndex)
                 {
@@ -87,14 +90,27 @@ namespace MarkdownEditor
                         {
                             //ファイルに書き込む
                             StreamWriter sw = new StreamWriter(stream);
-                            sw.Write(webBrowser1.DocumentText);
+                            sw.Write(txtMarkdown.Text);
                             //閉じる
                             sw.Close();
                             stream.Close();
                         }
                         break;
-
                     case 2:
+                        System.IO.Stream _stream;
+                        _stream = sf.OpenFile();
+                        if (_stream != null)
+                        {
+                            //ファイルに書き込む
+                            StreamWriter sw = new StreamWriter(_stream);
+                            sw.Write(webBrowser1.DocumentText);
+                            //閉じる
+                            sw.Close();
+                            _stream.Close();
+                        }
+                        break;
+
+                    case 3:
                         //Byte[] result = null;
                         //using (MemoryStream ms = new MemoryStream())
                         //{
@@ -113,7 +129,7 @@ namespace MarkdownEditor
                         Font fnt = new Font(BaseFont.CreateFont(@"c:\windows\fonts\meiryo.ttc,0", BaseFont.IDENTITY_H, true), 40);
 
                         Dictionary<string, object> dicProvider = new Dictionary<string, object>();
-                        dicProvider.Add(HTMLWorker.FONT_PROVIDER, new NewFontProvider());
+                        dicProvider.Add(HTMLWorker.FONT_PROVIDER, new NewFontProvider(returnValue));
 
                         string html = webBrowser1.DocumentText;
 
@@ -123,7 +139,25 @@ namespace MarkdownEditor
 
                         // step 1: creation of a document-object
                         Rectangle pageSize = new Rectangle(PageSize.A4);
-                        pageSize.BackgroundColor = new BaseColor(84, 141, 212);
+                        switch (returnValue)
+                        {
+                            case "normal":
+                                pageSize.BackgroundColor = new BaseColor(255, 255, 255);
+                                break;
+
+                            case "dark":
+                                pageSize.BackgroundColor = new BaseColor(0, 0, 0);
+                                break;
+
+                            case "paradise":
+                                pageSize.BackgroundColor = new BaseColor(84, 141, 212);
+                                break;
+
+                            default:
+                                pageSize.BackgroundColor = new BaseColor(255, 255, 255);
+                                break;
+                        }
+                        
                         Document document = new Document(pageSize, 30, 30, 30, 30);
                         
 
@@ -160,11 +194,36 @@ namespace MarkdownEditor
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            using (Form2 form2 = new Form2(returnValue))
+            {
+                if (form2.ShowDialog() == DialogResult.OK)
+                {
+                    returnValue = form2.returnValue;
+                    //Do something here with these values
 
+                    //for example
+                    //this.txtSomething.Text = val;
+                }
+            }
+
+            //// Determine if the form is modal.
+            //if (myForm.Modal == false)
+            //{
+            //    // Change borderstyle and make it not a top level window.
+            //    myForm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            //    myForm.TopLevel = false;
+            //}
         }
     }
     public class NewFontProvider : FontFactoryImp
     {
+        public string returnValue { get; set; } = "normal";
+
+        public NewFontProvider(string outStyle)
+        {
+            returnValue = outStyle;
+        }
+
         public override Font GetFont(string fontname, string encoding, bool embedded, float size, int style, BaseColor color, bool cached)
         {
             if (string.IsNullOrEmpty(fontname))
@@ -172,6 +231,24 @@ namespace MarkdownEditor
                 fontname = "c:\\windows\\fonts\\meiryo.ttc,0";
                 encoding = BaseFont.IDENTITY_H;
                 embedded = BaseFont.EMBEDDED;
+                switch (returnValue)
+                {
+                    case "normal":
+                        color = new BaseColor(0, 0, 0);
+                        break;
+
+                    case "dark":
+                        color = new BaseColor(255, 255, 255);
+                        break;
+
+                    case "paradise":
+                        color = new BaseColor(255, 255, 0);
+                        break;
+
+                    default:
+                        color = new BaseColor(0, 0, 0);
+                        break;
+                }
             }
 
             return base.GetFont(fontname, encoding, embedded, size, style, color, cached);
